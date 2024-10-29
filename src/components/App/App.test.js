@@ -73,6 +73,9 @@ describe('Setup tests for entire app', () => {
     fireEvent.click(screen.getAllByTestId('todo-task-toggle')[0]);
     fireEvent.click(btnCompleted);
     expect(screen.getAllByTestId('todo-task')).toHaveLength(1);
+    expect(screen.getByTestId('filter-count')).toHaveTextContent(
+      /2 items left/i
+    );
     fireEvent.click(btnActive);
     expect(screen.getAllByTestId('todo-task')).toHaveLength(2);
     fireEvent.click(btnAll);
